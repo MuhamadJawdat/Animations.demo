@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mission · Vision – Animation Showcase</title>
+
+<style>
+/* ---------- base layout ---------- */
+:root {
+  --accent:#0066ff;
+    --border:#e0e4e8;
+      --bg:#ffffff;
+      }
+      *{box-sizing:border-box;}
+      body{
+        margin:0;
+          padding:40px;
+            font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+              background:#f5f7fa;
+                color:#333;
+                }
+                h1{margin:0 0 1.5rem;font-size:2rem;}
+                h2{margin:0 0 .5rem;font-size:1.25rem;}
+                p{margin:0;}
+                /* demo wrapper */
+                .demo{
+                  background:var(--bg);
+                    border:1px solid var(--border);
+                      border-radius:6px;
+                        padding:30px;
+                          margin-bottom:50px;
+                            box-shadow:0 2px 4px rgba(0,0,0,.04);
+                            }
+                            .demo-header{
+                              display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;
+                              }
+                              .demo-header span{font-weight:600;}
+                              button{
+                                border:none;background:var(--accent);color:#fff;
+                                  padding:10px 18px;font-size:14px;border-radius:4px;cursor:pointer;
+                                  }
+                                  button:hover{filter:brightness(1.1);}
+                                  /* component */
+                                  .card-group{display:flex;gap:40px;flex-wrap:wrap;}
+                                  .card{
+                                    flex:1 1 280px;min-width:250px;
+                                      border:1px solid var(--border);border-radius:4px;
+                                        background:var(--bg);padding:25px;
+                                          transition:transform .2s;
+                                          }
+                                          /* simple hover lift so the client sees the element even when not animating */
+                                          .card:hover{transform:translateY(-4px);}
+                                          .icon{font-size:44px;line-height:1;margin-bottom:15px;}
+
+                                          /* ---------- animation classes & keyframes ---------- */
+                                          .card{opacity:1;transform:none;}  /* normal state */
+
+                                          /* 1. fade */
+                                          @keyframes fade-key{0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:none;}}
+                                          .fade{animation:fade-key .6s ease-out;}
+                                          /* 2. slide‑left */
+                                          @keyframes slide-left-key{0%{opacity:0;transform:translateX(60px);}100%{opacity:1;transform:none;}}
+                                          .slide-left{animation:slide-left-key .6s ease-out;}
+                                          /* 3. slide‑right */
+                                          @keyframes slide-right-key{0%{opacity:0;transform:translateX(-60px);}100%{opacity:1;transform:none;}}
+                                          .slide-right{animation:slide-right-key .6s ease-out;}
+                                          /* 4. slide‑up */
+                                          @keyframes slide-up-key{0%{opacity:0;transform:translateY(60px);}100%{opacity:1;transform:none;}}
+                                          .slide-up{animation:slide-up-key .6s ease-out;}
+                                          /* 5. slide‑down */
+                                          @keyframes slide-down-key{0%{opacity:0;transform:translateY(-60px);}100%{opacity:1;transform:none;}}
+                                          .slide-down{animation:slide-down-key .6s ease-out;}
+                                          /* 6. zoom‑in */
+                                          @keyframes zoom-in-key{0%{opacity:0;transform:scale(.5);}100%{opacity:1;transform:none;}}
+                                          .zoom-in{animation:zoom-in-key .6s ease-out;}
+                                          /* 7. zoom‑out */
+                                          @keyframes zoom-out-key{0%{opacity:0;transform:scale(1.4);}100%{opacity:1;transform:none;}}
+                                          .zoom-out{animation:zoom-out-key .6s ease-out;}
+                                          /* 8. flip‑x */
+                                          @keyframes flip-x-key{0%{opacity:0;transform:rotateX(-90deg);}100%{opacity:1;transform:none;}}
+                                          .flip-x{animation:flip-x-key .6s ease-out;transform-origin:top;}
+                                          /* 9. flip‑y */
+                                          @keyframes flip-y-key{0%{opacity:0;transform:rotateY(-90deg);}100%{opacity:1;transform:none;}}
+                                          .flip-y{animation:flip-y-key .6s ease-out;transform-origin:left;}
+                                          /* 10. rotate‑in */
+                                          @keyframes rotate-in-key{0%{opacity:0;transform:rotate(-10deg) scale(.8);}100%{opacity:1;transform:none;}}
+                                          .rotate-in{animation:rotate-in-key .6s ease-out;}
+                                          /* 11. bounce‑in */
+                                          @keyframes bounce-in-key{
+                                            0%,20%,40%,60%,80%,100%{transition-timing-function:cubic-bezier(.215,.61,.355,1);}
+                                              0%{opacity:0;transform:scale(.3);}
+                                                20%{transform:scale(1.1);}
+                                                  40%{transform:scale(.9);}
+                                                    60%{opacity:1;transform:scale(1.03);}
+                                                      80%{transform:scale(.97);}
+                                                        100%{transform:none;}
+                                                        }
+                                                        .bounce-in{animation:bounce-in-key .9s;}
+                                                        /* 12. scale‑in */
+                                                        @keyframes scale-in-key{0%{opacity:0;transform:scale(.3);}100%{opacity:1;transform:none;}}
+                                                        .scale-in{animation:scale-in-key .6s ease-out;}
+                                                        /* 13. skew‑in */
+                                                        @keyframes skew-in-key{0%{opacity:0;transform:skewX(-25deg);}100%{opacity:1;transform:none;}}
+                                                        .skew-in{animation:skew-in-key .6s ease-out;}
+                                                        /* 14. blur‑in */
+                                                        @keyframes blur-in-key{0%{opacity:0;filter:blur(8px);}100%{opacity:1;filter:blur(0);}}
+                                                        .blur-in{animation:blur-in-key .6s ease-out;}
+                                                        /* 15. roll‑in */
+                                                        @keyframes roll-in-key{0%{opacity:0;transform:translateX(-100%) rotate(-120deg);}100%{opacity:1;transform:none;}}
+                                                        .roll-in{animation:roll-in-key .7s ease-out;}
+                                                        /* 16. light‑speed */
+                                                        @keyframes light-speed-key{
+                                                          0%{opacity:0;transform:translateX(100%) skewX(-30deg);}
+                                                            60%{opacity:1;transform:translateX(-20px) skewX(20deg);}
+                                                              80%{transform:translateX(0) skewX(-5deg);}
+                                                                100%{transform:none;}
+                                                                }
+                                                                .light-speed{animation:light-speed-key .8s ease-out;}
+                                                                /* 17. perspective */
+                                                                @keyframes perspective-key{0%{opacity:0;transform:perspective(600px) rotateX(-45deg);}100%{opacity:1;transform:none;}}
+                                                                .perspective{animation:perspective-key .7s ease-out;transform-origin:top;}
+                                                                /* 18. puff‑in */
+                                                                @keyframes puff-in-key{0%{opacity:0;transform:scale(.7);filter:blur(4px);}100%{opacity:1;transform:none;filter:blur(0);}}
+                                                                .puff-in{animation:puff-in-key .7s ease-out;}
+                                                                /* 19. reveal‑left */
+                                                                @keyframes reveal-left-key{0%{opacity:0;clip-path:inset(0 100% 0 0);}100%{opacity:1;clip-path:inset(0 0 0 0);}}
+                                                                .reveal-left{animation:reveal-left-key .7s ease-out;}
+                                                                /* 20. swirl‑in */
+                                                                @keyframes swirl-in-key{0%{opacity:0;transform:scale(0) rotate(-720deg);}100%{opacity:1;transform:none;}}
+                                                                .swirl-in{animation:swirl-in-key .8s ease-out;}
+                                                                </style>
+                                                                </head>
+                                                                <body>
+
+                                                                <h1>Mission & Vision — 20 Animation Options</h1>
+
+                                                                <!-- 01 -->
+                                                                <section class="demo" data-anim="fade">
+                                                                  <div class="demo-header"><span>01 — Fade In</span><button>Preview animation</button></div>
+                                                                    <div class="card-group">
+                                                                        <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                            <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                              </div>
+                                                                              </section>
+
+                                                                              <!-- 02 -->
+                                                                              <section class="demo" data-anim="slide-left">
+                                                                                <div class="demo-header"><span>02 — Slide Left</span><button>Preview animation</button></div>
+                                                                                  <div class="card-group">
+                                                                                      <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                          <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                            </div>
+                                                                                            </section>
+
+                                                                                            <!-- 03 -->
+                                                                                            <section class="demo" data-anim="slide-right">
+                                                                                              <div class="demo-header"><span>03 — Slide Right</span><button>Preview animation</button></div>
+                                                                                                <div class="card-group">
+                                                                                                    <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                        <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                          </div>
+                                                                                                          </section>
+
+                                                                                                          <!-- 04 -->
+                                                                                                          <section class="demo" data-anim="slide-up">
+                                                                                                            <div class="demo-header"><span>04 — Slide Up</span><button>Preview animation</button></div>
+                                                                                                              <div class="card-group">
+                                                                                                                  <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                      <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                        </div>
+                                                                                                                        </section>
+
+                                                                                                                        <!-- 05 -->
+                                                                                                                        <section class="demo" data-anim="slide-down">
+                                                                                                                          <div class="demo-header"><span>05 — Slide Down</span><button>Preview animation</button></div>
+                                                                                                                            <div class="card-group">
+                                                                                                                                <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                    <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                      </div>
+                                                                                                                                      </section>
+
+                                                                                                                                      <!-- 06 -->
+                                                                                                                                      <section class="demo" data-anim="zoom-in">
+                                                                                                                                        <div class="demo-header"><span>06 — Zoom In</span><button>Preview animation</button></div>
+                                                                                                                                          <div class="card-group">
+                                                                                                                                              <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                  <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                    </div>
+                                                                                                                                                    </section>
+
+                                                                                                                                                    <!-- 07 -->
+                                                                                                                                                    <section class="demo" data-anim="zoom-out">
+                                                                                                                                                      <div class="demo-header"><span>07 — Zoom Out</span><button>Preview animation</button></div>
+                                                                                                                                                        <div class="card-group">
+                                                                                                                                                            <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                                <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                                  </div>
+                                                                                                                                                                  </section>
+
+                                                                                                                                                                  <!-- 08 -->
+                                                                                                                                                                  <section class="demo" data-anim="flip-x">
+                                                                                                                                                                    <div class="demo-header"><span>08 — Flip X</span><button>Preview animation</button></div>
+                                                                                                                                                                      <div class="card-group">
+                                                                                                                                                                          <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                                              <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                                                </div>
+                                                                                                                                                                                </section>
+
+                                                                                                                                                                                <!-- 09 -->
+                                                                                                                                                                                <section class="demo" data-anim="flip-y">
+                                                                                                                                                                                  <div class="demo-header"><span>09 — Flip Y</span><button>Preview animation</button></div>
+                                                                                                                                                                                    <div class="card-group">
+                                                                                                                                                                                        <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                                                            <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                                                              </div>
+                                                                                                                                                                                              </section>
+
+                                                                                                                                                                                              <!-- 10 -->
+                                                                                                                                                                                              <section class="demo" data-anim="rotate-in">
+                                                                                                                                                                                                <div class="demo-header"><span>10 — Rotate In</span><button>Preview animation</button></div>
+                                                                                                                                                                                                  <div class="card-group">
+                                                                                                                                                                                                      <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                                                                          <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                            </section>
+
+                                                                                                                                                                                                            <!-- 11 -->
+                                                                                                                                                                                                            <section class="demo" data-anim="bounce-in">
+                                                                                                                                                                                                              <div class="demo-header"><span>11 — Bounce In</span><button>Preview animation</button></div>
+                                                                                                                                                                                                                <div class="card-group">
+                                                                                                                                                                                                                    <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                                                                                        <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                                                                                          </div>
+                                                                                                                                                                                                                          </section>
+
+                                                                                                                                                                                                                          <!-- 12 -->
+                                                                                                                                                                                                                          <section class="demo" data-anim="scale-in">
+                                                                                                                                                                                                                            <div class="demo-header"><span>12 — Scale In</span><button>Preview animation</button></div>
+                                                                                                                                                                                                                              <div class="card-group">
+                                                                                                                                                                                                                                  <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                                                                                                      <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                        </section>
+
+                                                                                                                                                                                                                                        <!-- 13 -->
+                                                                                                                                                                                                                                        <section class="demo" data-anim="skew-in">
+                                                                                                                                                                                                                                          <div class="demo-header"><span>13 — Skew In</span><button>Preview animation</button></div>
+                                                                                                                                                                                                                                            <div class="card-group">
+                                                                                                                                                                                                                                                <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                                                                                                                    <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                                                                      </section>
+
+                                                                                                                                                                                                                                                      <!-- 14 -->
+                                                                                                                                                                                                                                                      <section class="demo" data-anim="blur-in">
+                                                                                                                                                                                                                                                        <div class="demo-header"><span>14 — Blur In</span><button>Preview animation</button></div>
+                                                                                                                                                                                                                                                          <div class="card-group">
+                                                                                                                                                                                                                                                              <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                                                                                                                                  <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                    </section>
+
+                                                                                                                                                                                                                                                                    <!-- 15 -->
+                                                                                                                                                                                                                                                                    <section class="demo" data-anim="roll-in">
+                                                                                                                                                                                                                                                                      <div class="demo-header"><span>15 — Roll In</span><button>Preview animation</button></div>
+                                                                                                                                                                                                                                                                        <div class="card-group">
+                                                                                                                                                                                                                                                                            <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                                                                                                                                                <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                                  </section>
+
+                                                                                                                                                                                                                                                                                  <!-- 16 -->
+                                                                                                                                                                                                                                                                                  <section class="demo" data-anim="light-speed">
+                                                                                                                                                                                                                                                                                    <div class="demo-header"><span>16 — Light Speed</span><button>Preview animation</button></div>
+                                                                                                                                                                                                                                                                                      <div class="card-group">
+                                                                                                                                                                                                                                                                                          <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                                                                                                                                                              <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                </section>
+
+                                                                                                                                                                                                                                                                                                <!-- 17 -->
+                                                                                                                                                                                                                                                                                                <section class="demo" data-anim="perspective">
+                                                                                                                                                                                                                                                                                                  <div class="demo-header"><span>17 — Perspective Up</span><button>Preview animation</button></div>
+                                                                                                                                                                                                                                                                                                    <div class="card-group">
+                                                                                                                                                                                                                                                                                                        <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                                                                                                                                                                            <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                              </section>
+
+                                                                                                                                                                                                                                                                                                              <!-- 18 -->
+                                                                                                                                                                                                                                                                                                              <section class="demo" data-anim="puff-in">
+                                                                                                                                                                                                                                                                                                                <div class="demo-header"><span>18 — Puff In</span><button>Preview animation</button></div>
+                                                                                                                                                                                                                                                                                                                  <div class="card-group">
+                                                                                                                                                                                                                                                                                                                      <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                                                                                                                                                                                          <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                            </section>
+
+                                                                                                                                                                                                                                                                                                                            <!-- 19 -->
+                                                                                                                                                                                                                                                                                                                            <section class="demo" data-anim="reveal-left">
+                                                                                                                                                                                                                                                                                                                              <div class="demo-header"><span>19 — Reveal Left</span><button>Preview animation</button></div>
+                                                                                                                                                                                                                                                                                                                                <div class="card-group">
+                                                                                                                                                                                                                                                                                                                                    <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                                                                                                                                                                                                        <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                                                                                                                                                                                                          </div>
+                                                                                                                                                                                                                                                                                                                                          </section>
+
+                                                                                                                                                                                                                                                                                                                                          <!-- 20 -->
+                                                                                                                                                                                                                                                                                                                                          <section class="demo" data-anim="swirl-in">
+                                                                                                                                                                                                                                                                                                                                            <div class="demo-header"><span>20 — Swirl In</span><button>Preview animation</button></div>
+                                                                                                                                                                                                                                                                                                                                              <div class="card-group">
+                                                                                                                                                                                                                                                                                                                                                  <div class="card"><div class="icon">🚀</div><h2>Mission</h2><p>To surround the specialist with innovative and effective technologies, delivering value‑added services and continuous education for superior patient outcomes.</p></div>
+                                                                                                                                                                                                                                                                                                                                                      <div class="card"><div class="icon">🌐</div><h2>Vision</h2><p>To lead the medical device industry across our growing network and specialties.</p></div>
+                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                        </section>
+
+                                                                                                                                                                                                                                                                                                                                                        <script>
+                                                                                                                                                                                                                                                                                                                                                        /* tiny helper JS to trigger the chosen animation class */
+                                                                                                                                                                                                                                                                                                                                                        const animations=[
+                                                                                                                                                                                                                                                                                                                                                          "fade","slide-left","slide-right","slide-up","slide-down","zoom-in","zoom-out",
+                                                                                                                                                                                                                                                                                                                                                            "flip-x","flip-y","rotate-in","bounce-in","scale-in","skew-in","blur-in",
+                                                                                                                                                                                                                                                                                                                                                              "roll-in","light-speed","perspective","puff-in","reveal-left","swirl-in"
+                                                                                                                                                                                                                                                                                                                                                              ];
+
+                                                                                                                                                                                                                                                                                                                                                              document.querySelectorAll(".demo").forEach(demo=>{
+                                                                                                                                                                                                                                                                                                                                                                const btn=demo.querySelector("button");
+                                                                                                                                                                                                                                                                                                                                                                  const cards=demo.querySelectorAll(".card");
+                                                                                                                                                                                                                                                                                                                                                                    btn.addEventListener("click",()=>{
+                                                                                                                                                                                                                                                                                                                                                                        const anim=demo.dataset.anim;
+                                                                                                                                                                                                                                                                                                                                                                            cards.forEach(card=>{
+                                                                                                                                                                                                                                                                                                                                                                                  /* remove any previous animation classes */
+                                                                                                                                                                                                                                                                                                                                                                                        animations.forEach(a=>card.classList.remove(a));
+                                                                                                                                                                                                                                                                                                                                                                                              /* force reflow so the animation can restart */
+                                                                                                                                                                                                                                                                                                                                                                                                    void card.offsetWidth;
+                                                                                                                                                                                                                                                                                                                                                                                                          /* apply new animation */
+                                                                                                                                                                                                                                                                                                                                                                                                                card.classList.add(anim);
+                                                                                                                                                                                                                                                                                                                                                                                                                    });
+                                                                                                                                                                                                                                                                                                                                                                                                                      });
+                                                                                                                                                                                                                                                                                                                                                                                                                      });
+                                                                                                                                                                                                                                                                                                                                                                                                                      </script>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                      </body>
+                                                                                                                                                                                                                                                                                                                                                                                                                      </html>
